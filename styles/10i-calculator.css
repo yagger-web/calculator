@@ -1,0 +1,32 @@
+	body{
+	font-family: Arial;
+	background-color:black;
+	}
+	.calc-button{
+	height: 60px;
+	width: 60px;
+	border-radius: 60px;
+	font-size: 26px;
+	cursor: pointer;
+	margine-right: 5px;
+	}
+	.clear-button{
+	font-size: 17px;
+	}
+	.calculation{
+	color:white;
+	font-size: 45px;
+	}
+	.orange-button{
+	background-color:orange;
+	color:white;
+	}
+	.gray-button{
+	background-color:rgb(151, 151, 151);
+	color:white;
+	}
+	.sqrt-exp-button{
+	background-color: red;
+	color: white;
+	}
+	

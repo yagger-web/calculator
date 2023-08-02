@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <title>CALCULATOR sqrt exp</title>
+  
+  <style>
+  
+	body{
+	font-family: Arial;
+	background-color:black;
+	}
+	.calc-button{
+	height: 60px;
+	width: 60px;
+	border-radius: 60px;
+	font-size: 26px;
+	cursor: pointer;
+	margine-right: 5px;
+	}
+	.clear-button{
+	font-size: 17px;
+	}
+	.calculation{
+	color:white;
+	font-size: 45px;
+	}
+	.orange-button{
+	background-color:orange;
+	color:white;
+	}
+	.gray-button{
+	background-color:rgb(151, 151, 151);
+	color:white;
+	}
+	.sqrt-exp-button{
+	background-color: red;
+	color: white;
+	}
+  </style>
+  
+  
+  </head>
+  <body>
+  
+    <p class="js-display-calculation calculation" ></p>
+	
+	<p>
+	
+	<button onclick="
+	upDataCalculation ('1');
+	
+	"
+	class="calc-button gray-button">1</button>
+	
+	<button onclick="
+	upDataCalculation ('2');
+	
+	"
+	class="calc-button gray-button">2</button>
+	
+	<button onclick="
+	upDataCalculation ('3');
+	
+	"
+	class="calc-button gray-button">3</button>
+	
+	<button onclick="
+	upDataCalculation ('+');
+	
+	"
+	class="calc-button orange-button">+</button>
+	
+	</p>
+	
+	<p>
+	<button onclick="
+	upDataCalculation ('4');
+	
+	"
+	class="calc-button gray-button">4</button>
+	
+	<button onclick="
+	upDataCalculation ('5');
+	
+	"
+	class="calc-button gray-button">5</button>
+	
+	<button onclick="
+	
+	upDataCalculation ('6');
+	
+	"
+	class="calc-button gray-button">6</button>
+	
+	<button onclick="
+	upDataCalculation ('-');
+	
+	"
+	class="calc-button orange-button">-</button>
+	
+	</p>
+	
+	<p>
+	<button onclick="
+	upDataCalculation ('7');
+	
+	"
+	class="calc-button gray-button">7</button>
+	
+	<button onclick="
+	upDataCalculation ('8');
+	
+	"
+	class="calc-button gray-button">8</button>
+	
+	<button onclick="
+	upDataCalculation ('9');
+	
+	"
+	class="calc-button gray-button">9</button>
+	
+	<button onclick="
+	upDataCalculation ('*');
+	
+	"
+	class="calc-button orange-button">*</button>
+	
+	</p>
+	
+	<p>
+	<button onclick="
+	upDataCalculation ('0');
+	
+	"
+	class="calc-button gray-button">0</button>
+	
+	<button onclick="
+	upDataCalculation ('.');
+	
+	"
+	class="calc-button gray-button">.</button>
+	
+	<button onclick="
+	calculation=eval(calculation); eval();<!--znak jednakosti konvertuje string u matematiku-->
+	console.log(calculation);
+	
+	displayCalculation();
+	
+	<!--Ovde se vrsi snimanje kalkulacije jer nije bilo u upDataCalculator fji-->
+	
+	localStorage.setItem('name',calculation);
+	
+	"
+	class="calc-button gray-button">=</button>
+	
+	<button onclick="
+	upDataCalculation ('/');
+	
+	"
+	class="calc-button orange-button">/</button>
+	</p>
+	
+	<p>
+	<button onclick="
+	calculation = ''; <!--reset-->
+	console.log(calculation);
+	
+	displayCalculation();
+	
+	<!--Ovde se vrsi snimanje kalkulacije jer nije bilo u upDataCalculator fji-->
+	
+	localStorage.setItem('name',calculation); <!--calculation value je string-->
+	
+	"
+	class="calc-button clear-button gray-button">Clear</button>
+	
+	<button onclick="
+	sqrt ();
+	"
+	class="calc-button clear-button sqrt-exp-button">Sqrt</button>
+	
+	<button onclick="
+	exponentiation ();
+	"
+	class="calc-button clear-button sqrt-exp-button">Exp</button>
+	</p>
+	
+	
+    <script>
+	
+		let calculation = localStorage.getItem('name') ||'';
+		
+		displayCalculation(); //kad se ucita display
+		
+		
+		function upDataCalculation (parametar){
+		calculation = calculation + parametar;
+		console.log(calculation);
+		
+		displayCalculation(); //ubacujemo u fju
+		
+		localStorage.setItem('name',calculation); //localStorage se ubacuje u fju
+		
+		};
+		
+		function displayCalculation(){
+		const displayElement = document.querySelector('.js-display-calculation');
+		displayElement.innerHTML = calculation;
+	}
+	
+	
+		function sqrt (){
+		calculation = Math.sqrt(calculation);
+		console.log(calculation);
+		
+		displayCalculation();
+		localStorage.setItem('name',calculation);
+		};
+		
+		function exponentiation (){
+		calculation = calculation ** 2;
+		console.log(calculation);
+		
+		displayCalculation(); //ubacujemo u fju
+		
+		localStorage.setItem('name',calculation); //localStorage se ubacuje u fju
+		
+		};
+	
+		
+	
+    </script>
+	
+  </body>
+</html>
